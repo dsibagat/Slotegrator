@@ -27,8 +27,8 @@ public class DriverHelper {
         }
     }
 
-    public static String getSessionId(){
-        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString().replace("selenoid","");
+    public static String getSessionId() {
+        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString().replace("selenoid", "");
     }
 
     public static String getConsoleLogs() {

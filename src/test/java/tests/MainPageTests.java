@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 @Tag("web")
 public class MainPageTests extends TestBase {
@@ -43,17 +44,20 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Submenu \"Resources\" should be shown")
-    void submenuResourcesIsShownTest() {
-        open("");
+    @DisplayName("Check sub-items in submenu \"ABOUT US\"")
+    void submenuAboutUsIsShownTest() {
+        step("Open main page", () ->
+                open(""));
 
-        $(".menu-icon-292").hover();
+        step("Open submenu \"ABOUT US\"", () ->
+                $(".menu-icon-132").hover());
 
-        $(".open").shouldHave(
-                text("Articles"),
-                text("Blog"),
-                text("Product Sheets"),
-                text("Videos"),
-                text("Whitepapers"));
+        step("Check that submenu is shown", () ->
+                $(".open").shouldHave(
+                        text("Management"),
+                        text("Awards"),
+                        text("Careers"),
+                        text("News"),
+                        text("Contact")));
     }
 }
