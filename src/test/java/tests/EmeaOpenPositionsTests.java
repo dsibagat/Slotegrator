@@ -42,9 +42,9 @@ public class EmeaOpenPositionsTests extends TestBase {
     @Test
     @DisplayName("Console log should not have any errors")
     void consoleLogShouldNotHaveErrors() {
-        open("/about-serrala/we-are-serrala/open-positions/emea-open-positions");
+        open("/about-serrala/we-are-serrala");
 
-        $(".body").shouldBe(visible);
+
 
         String consoleLogs = getConsoleLogs();
         assertThat(consoleLogs, not(containsString("SEVERE")));
