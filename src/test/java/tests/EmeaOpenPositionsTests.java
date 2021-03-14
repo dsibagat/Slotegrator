@@ -55,7 +55,7 @@ public class EmeaOpenPositionsTests extends TestBase {
     void searchAutomationPosition() {
         open("/about-serrala/we-are-serrala/open-positions/emea-open-positions");
 
-        $("input#jobSearch").val("automation");
+        $("#jobSearch").val("automation");
 
         $("#jobList").shouldHave(text("Automation"));
 
