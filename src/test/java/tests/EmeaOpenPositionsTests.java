@@ -15,7 +15,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-@Feature("Onboarding page content")
+@Feature("EMEA Positions page content")
 @Tag("web")
 public class EmeaOpenPositionsTests extends TestBase {
 
