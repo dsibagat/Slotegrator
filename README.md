@@ -12,7 +12,7 @@
 - [X] - Search positions is work
 
 ## Добавлено видео о прохождении тестов
-![Video](src/test/resources/files/test-video.mp4)
+![Video](src/test/resources/files/test-video.gif)
 
 ## Добавлен отчёт Allure
 ![Allure](src/test/resources/files/allure-reports.png)
