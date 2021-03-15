@@ -8,8 +8,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 import static helpers.DriverHelper.getConsoleLogs;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.not;
@@ -44,7 +43,7 @@ public class EmeaOpenPositionsTests extends TestBase {
     void consoleLogShouldNotHaveErrors() {
         open("/about-serrala/we-are-serrala");
 
-
+        $(".agree-button").click();
 
         String consoleLogs = getConsoleLogs();
         assertThat(consoleLogs, not(containsString("SEVERE")));
@@ -55,6 +54,7 @@ public class EmeaOpenPositionsTests extends TestBase {
     void searchAutomationPosition() {
         open("/about-serrala/we-are-serrala/open-positions/emea-open-positions");
 
+        switchTo().frame($("#psJobWidget iframe"));
         $("#jobSearch").val("automation");
 
         $("#jobList").shouldHave(text("Automation"));
