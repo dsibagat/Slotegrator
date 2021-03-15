@@ -11,13 +11,13 @@
 - [X] - Console log should not have any errors
 - [X] - Search positions is work
 
-## Добавлено видео о прохождении тестов
+## Added tests video
 ![Video](src/test/resources/files/test-video.gif)
 
-## Добавлен отчёт Allure
+## Added allure report
 ![Allure](src/test/resources/files/allure-reports.png)
 
-## Добавлено уведомление в Telegram
+## Added telegram notification
 ![Telegram](src/test/resources/files/Telegram-report.png)
 
 
