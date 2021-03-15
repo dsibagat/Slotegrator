@@ -12,7 +12,6 @@
 - [X] - Search positions is work
 
 ## Added tests video
-![Video](src/test/resources/files/test-video.gif)
 
 ## Added allure report
 ![Allure](src/test/resources/files/allure-reports.png)
