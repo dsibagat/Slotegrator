@@ -21,4 +21,4 @@
 ![Telegram](src/test/resources/files/Telegram-report.png)
 
 
-![Selenide](src/test/resources/files/stack/Selenide.png)![Gradle](src/test/resources/files/stack/Gradle.png)![Java](src/test/resources/files/stack/Java.png)![JUnit5](src/test/resources/files/stack/JUnit5.png)![Allure_Report](src/test/resources/files/stack/Allure_Report.png)![Jenkins](src/test/resources/files/stack/Jenkins.png)![Github](src/test/resources/files/stack/Github.png)![Telegram](src/test/resources/files/stack/Telegram.png)
+![Selenide](src/test/resources/files/stack/Selenide.png)![Selenoid](src/test/resources/files/stack/Selenoid.png)![Gradle](src/test/resources/files/stack/Gradle.png)![Java](src/test/resources/files/stack/Java.png)![JUnit5](src/test/resources/files/stack/JUnit5.png)![Allure_Report](src/test/resources/files/stack/Allure_Report.png)![Jenkins](src/test/resources/files/stack/Jenkins.png)![Github](src/test/resources/files/stack/Github.png)![Telegram](src/test/resources/files/stack/Telegram.png)
