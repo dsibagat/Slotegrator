@@ -9,6 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static helpers.DriverHelper.getConsoleLogs;
+import static io.qameta.allure.Allure.step;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,45 +21,50 @@ public class EmeaOpenPositionsTests extends TestBase {
     @Test
     @DisplayName("Page should be opened from Main page")
     void shouldBeOpenedFromMainPageTest() {
-        open("");
+        step("Open main page", () ->
+                open(""));
 
-        $(".menu-icon-132").hover();
-
-        $(".open").$(byText("Open Positions")).click();
-
-        $("#paragrah--item--12592").click();
+        step("Open EMEA Positions page", () -> {
+            $(".menu-icon-132").hover();
+            $(".open").$(byText("Open Positions")).click();
+            $("#paragrah--item--12592").click();
+        });
     }
 
     @Test
     @DisplayName("Page should be opened with direct link")
     void shouldBeOpenedWithDirectLinkTest() {
-        open("/about-serrala/we-are-serrala/open-positions/emea-open-positions");
+        step("Open EMEA Positions page", () ->
+                open("/about-serrala/we-are-serrala/open-positions/emea-open-positions"));
 
-        $(".page-title").shouldHave(text("EMEA Open Positions"));
+        step("Check that EMEA Positions page is shown", () ->
+                $(".page-title").shouldHave(text("EMEA Open Positions")));
     }
 
     @Test
     @DisplayName("Console log should not have any errors")
     void consoleLogShouldNotHaveErrors() {
-        open("/about-serrala/we-are-serrala");
+        step("Open EMEA Positions page", () ->
+                open("/about-serrala/we-are-serrala/open-positions/emea-open-positions"));
 
-        $(".agree-button").click();
-
-        String consoleLogs = getConsoleLogs();
-        assertThat(consoleLogs, not(containsString("SEVERE")));
+        step("Check that console log should not have any errors", () -> {
+            String consoleLogs = getConsoleLogs();
+            assertThat(consoleLogs, not(containsString("SEVERE")));
+        });
     }
 
     @Test
     @DisplayName("Search \"automation\" positions")
     void searchAutomationPosition() {
-        open("/about-serrala/we-are-serrala/open-positions/emea-open-positions");
+        step("Open EMEA Positions page", () ->
+                open("/about-serrala/we-are-serrala/open-positions/emea-open-positions"));
 
-        switchTo().frame($("#psJobWidget iframe"));
-        $("#jobSearch").val("automation");
+        step("Input \"automation\" in search field", () -> {
+            switchTo().frame($("#psJobWidget iframe"));
+            $("#jobSearch").val("automation");
+        });
 
-        $("#jobList").shouldHave(text("Automation"));
-
-        String consoleLogs = getConsoleLogs();
-        assertThat(consoleLogs, not(containsString("SEVERE")));
+        step("Check that jobs contains \"automation\" word is shown", () ->
+                $("#jobList").shouldHave(text("Automation")));
     }
 }

@@ -14,35 +14,43 @@ import static io.qameta.allure.Allure.step;
 @Feature("Main page content")
 @Tag("web")
 public class MainPageTests extends TestBase {
+
     @Test
     @DisplayName("Page should have title Serrala Wins TMI Award")
     void titlePageTest() {
-        open("");
-
-        $(".slick-active .huge-title").shouldHave(text("Serrala Wins TMI Award"));
+        step("Open main page", () ->
+                open(""));
+        step("Check that Serrala Wins TMI Award is shown", () ->
+                $(".slick-active .huge-title").shouldHave(text("Serrala Wins TMI Award")));
     }
 
     @Test
     @DisplayName("Page blocks should be loaded")
     void baseBlocksLoadedTest() {
-        open("");
+        step("Open main page", () ->
+                open(""));
 
-        $("#paragrah--item--3").shouldBe(visible);
-        $("#paragrah--item--4").shouldBe(visible);
-        $("#paragrah--item--927").shouldBe(visible);
-        $("#paragrah--item--6").shouldBe(visible);
-        $("#paragrah--item--4402").shouldBe(visible);
-        $("#serrala-footer").shouldBe(visible);
+        step("Check that Page blocks is shown", () -> {
+            $("#paragrah--item--3").shouldBe(visible);
+            $("#paragrah--item--4").shouldBe(visible);
+            $("#paragrah--item--927").shouldBe(visible);
+            $("#paragrah--item--6").shouldBe(visible);
+            $("#paragrah--item--4402").shouldBe(visible);
+            $("#serrala-footer").shouldBe(visible);
+        });
     }
 
     @Test
     @DisplayName("Page should change language")
     void changeLanguageTest() {
-        open("");
+        step("Open main page", () ->
+                open(""));
 
-        $(".de").click();
+        step("Change language", () ->
+                $(".de").click());
 
-        $(".slick-active .huge-title").shouldHave(text("Serrala bezieht SkyCampus"));
+        step("Check that language is changed", () ->
+                $(".slick-active .huge-title").shouldHave(text("Serrala bezieht SkyCampus")));
     }
 
     @Test

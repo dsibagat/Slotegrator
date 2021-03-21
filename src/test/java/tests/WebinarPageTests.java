@@ -1,6 +1,5 @@
 package tests;
 
-import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -28,9 +27,9 @@ public class WebinarPageTests extends TestBase {
         });
 
         step("Click on submit button", () ->
-        $(".mktoButton").scrollTo().click());
+                $(".mktoButton").scrollTo().click());
 
         step("Check error is shown", () ->
-        $(".mktoErrorDetail").shouldHave(text("example@yourdomain.com")));
+                $(".mktoErrorDetail").shouldHave(text("example@yourdomain.com")));
     }
 }
