@@ -9,34 +9,39 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static helpers.DriverHelper.getConsoleLogs;
 import static io.qameta.allure.Allure.step;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 @Feature("Main page content")
 @Tag("web")
 public class MainPageTests extends TestBase {
 
     @Test
-    @DisplayName("Page should have title Serrala Wins TMI Award")
+    @DisplayName("Page should have title WE ACCELERATE YOUR BUSINESS")
     void titlePageTest() {
         step("Open main page", () ->
                 open(""));
-        step("Check that Serrala Wins TMI Award is shown", () ->
-                $(".slick-active .huge-title").shouldHave(text("Serrala Wins TMI Award")));
+        step("Check that WE ACCELERATE YOUR BUSINESS is shown", () ->
+                $("h1.info").shouldHave(text("WE ACCELERATE YOUR BUSINESS")));
     }
 
     @Test
-    @DisplayName("Page blocks should be loaded")
+    @DisplayName("Page sections should be loaded")
     void baseBlocksLoadedTest() {
         step("Open main page", () ->
                 open(""));
 
-        step("Check that Page blocks is shown", () -> {
-            $("#paragrah--item--3").shouldBe(visible);
-            $("#paragrah--item--4").shouldBe(visible);
-            $("#paragrah--item--927").shouldBe(visible);
-            $("#paragrah--item--6").shouldBe(visible);
-            $("#paragrah--item--4402").shouldBe(visible);
-            $("#serrala-footer").shouldBe(visible);
+        step("Check that Page sections is shown", () -> {
+            $(".products-list").shouldBe(visible);
+            $(".unified-protocol").shouldBe(visible);
+            $(".world-map").shouldBe(visible);
+            $(".create-project").shouldBe(visible);
+            $(".partners-list").shouldBe(visible);
+            $(".reviews").shouldBe(visible);
+            $(".news-list").shouldBe(visible);
         });
     }
 
@@ -46,28 +51,24 @@ public class MainPageTests extends TestBase {
         step("Open main page", () ->
                 open(""));
 
-        step("Change language", () ->
-                $(".de").click());
+        step("Change language", () -> {
+            $(".current").hover();
+            $(".to-toggle").click();
+        });
 
         step("Check that language is changed", () ->
-                $(".slick-active .huge-title").shouldHave(text("Serrala bezieht SkyCampus")));
+                $("h1.info").shouldHave(text("МЫ - ДВИГАТЕЛЬ ВАШЕГО БИЗНЕСА")));
     }
 
     @Test
-    @DisplayName("Check sub-items in submenu \"ABOUT US\"")
-    void submenuAboutUsIsShownTest() {
+    @DisplayName("Console log should not have any errors")
+    void consoleLogShouldNotHaveErrors() {
         step("Open main page", () ->
                 open(""));
 
-        step("Open submenu \"ABOUT US\"", () ->
-                $(".menu-icon-132").hover());
-
-        step("Check that submenu is shown", () ->
-                $(".open").shouldHave(
-                        text("Management"),
-                        text("Awards"),
-                        text("Careers"),
-                        text("News"),
-                        text("Contact")));
+        step("Check that console log should not have any errors", () -> {
+            String consoleLogs = getConsoleLogs();
+            assertThat(consoleLogs, not(containsString("SEVERE")));
+        });
     }
 }
