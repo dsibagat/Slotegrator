@@ -18,7 +18,7 @@
 ![Allure](files/allure-report.png)
 
 ## Added telegram notification
-![Telegram](files/telegram-report.png)
+![Telegram](files/telegram.png)
 
 
 ![Selenide](files/stack/Selenide.png)![Selenoid](files/stack/Selenoid.png)![Gradle](files/stack/Gradle.png)![Java](files/stack/Java.png)![JUnit5](files/stack/JUnit5.png)![Allure_Report](files/stack/Allure_Report.png)![Jenkins](files/stack/Jenkins.png)![Github](files/stack/Github.png)![Telegram](files/stack/Telegram.png)
