@@ -47,10 +47,10 @@ public class AllProvidersPageTests extends TestBase {
                 open("/game_developers/"));
 
         step("Hover on Microgaming tile", () -> {
-            $("#w0 [data-key='2648']").hover();
+            $("[id=w0] [data-key='2648']").hover();
         });
 
         step("Check that additional data is shown", () ->
-                $("#=w0 [data-key='2648'] .info").shouldBe(not(visible)));
+                $("[id=w0] [data-key='2648'] .info").shouldBe(visible));
     }
 }
