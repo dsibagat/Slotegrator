@@ -1,15 +1,14 @@
-# Autotests https://www.serrala.com page
+# Autotests https://slotegrator.pro
 ## Main page test are implemented
 - [X] - Main title text is shown
-- [X] - All blocks should be loaded
+- [X] - All sections should be loaded
 - [X] - Page should change language
-- [X] - Sub-items in submenu is shown
+- [X] - Console log should not have any errors
 
-## EMEA Positions page test are implemented
+## All providers page test are implemented
 - [X] - Page should be opened from Main page
 - [X] - Page should be opened with direct link
-- [X] - Console log should not have any errors
-- [X] - Search positions is work
+- [X] - Check that additional data is shown
 
 ## Added tests video
 ![Video](files/test-video.gif)
